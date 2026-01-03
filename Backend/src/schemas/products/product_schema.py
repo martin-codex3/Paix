@@ -1,0 +1,12 @@
+from pydantic import BaseModel, Field
+from datetime import datetime
+
+
+# creating a new product schema here
+class CreateProductSchema(BaseModel):
+    project_title: str = Field(min_length=1)
+    project_description: str = Field(min_length=1)
+    project_category: str = Field(min_length=1)
+    project_version: str = Field(default="v1")
+    project_created_at: datetime = Field(default=datetime.now())
+    project_updated_at: datetime = Field(default=datetime.now())
