@@ -3,6 +3,7 @@ from sqlmodel.ext.asyncio.session import AsyncSession
 from src.schemas.users.user_schema import SignUpUserSchema
 from sqlmodel import select
 from src.models.user.user_model import UserModel
+from src.utils.password_management.password_manager import hash_user_password
 
 
 class UserService:
@@ -31,8 +32,19 @@ class UserService:
         user = user_data.model_dump() # we have to convert the data here to a dict
         # we have to pass all the dict key, values to the model here
         new_user = UserModel(**user)
-        session.add(new_user)
-        await session.commit()
-        return new_user
+
+        if user is not None:
+            password = user_data.password
+            confirm_password = user_data.confirm_password
+
+            # we will hash both of the passwords here
+            new_user.confirm_password = hash_user_password(confirm_password)
+            new_user.password = hash_user_password(password)
+
+            session.add(new_user)
+            await session.commit()
+            return new_user
+        else:
+            return None
 
 
