@@ -1,3 +1,15 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+
+@theme {
+    --font-primary-main: Inter, sans-serif;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("/fonts/web/Inter-Regular.ttf");
+    font-style: normal;
+    font-weight: normal;
+}
