@@ -7,7 +7,7 @@
 	<title>Paix</title>
 </svelte:head>
 
-<main class="font-primary-main">
+<main class="font-primary-main bg-gray-200">
 	<section>
 		{@render children()}
 	</section>
