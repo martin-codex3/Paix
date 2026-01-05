@@ -8,7 +8,7 @@
 </svelte:head>
 
 <main class="font-primary-main bg-gray-200">
-	<section>
+	<section class="">
 		{@render children()}
 	</section>
 </main>
