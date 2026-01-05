@@ -1,0 +1,38 @@
+from pydantic import EmailStr
+from sqlmodel.ext.asyncio.session import AsyncSession
+from src.schemas.users.user_schema import SignUpUserSchema
+from sqlmodel import select
+from src.models.user.user_model import UserModel
+
+
+class UserService:
+
+    """this will get the user by the provided email here"""
+    async def get_user_by_email(self, email: EmailStr, session: AsyncSession):
+        statement = select(UserModel).where(UserModel.email == email)
+        results = await session.exec(statement)
+
+        user = results.first()
+        return user
+
+
+    async def check_if_user_exists(self, user_data: SignUpUserSchema, session: AsyncSession):
+        email = user_data.email # we will get the user email from the input here
+        user_exists = await self.get_user_by_email(email = email, session = session)
+
+        # checking if the user exists here
+        if user_exists:
+            return True
+        else:
+            return False
+
+
+    async def create_user_account(self, user_data: SignUpUserSchema, session: AsyncSession):
+        user = user_data.model_dump() # we have to convert the data here to a dict
+        # we have to pass all the dict key, values to the model here
+        new_user = UserModel(**user)
+        session.add(new_user)
+        await session.commit()
+        return new_user
+
+

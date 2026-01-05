@@ -8,7 +8,7 @@ class UserModel(SQLModel, table = True):
     first_name: str
     last_name: str
     username: str
-    email: str
+    email: str = Field(unique=True)
     password: str
     confirm_password: str
     is_verified: bool = Field(default=False)
