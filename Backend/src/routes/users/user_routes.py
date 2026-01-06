@@ -61,6 +61,8 @@ async def login(user_data: SignInUserSchema, session: AsyncSession = Depends(app
                     "last_name": user.last_name,
                     "username": user.username,
                     "email": user.email,
+                    "is_verified": user.is_verified,
+                    "created_at": str(user.created_at)
                 },
                 refresh = False
             )
@@ -71,9 +73,35 @@ async def login(user_data: SignInUserSchema, session: AsyncSession = Depends(app
                     "last_name": user.last_name,
                     "username": user.username,
                     "email": user.email,
+                    "is_verified": user.is_verified,
+                    "created_at": str(user.created_at)
                 },
-                refresh=False
+                refresh = True
             )
+
+            return JSONResponse(
+                status_code=status.HTTP_200_OK,
+                content={
+                    "message": "Logged in successfully",
+                    "access_token": access_token,
+                    "refresh_token": refresh_token,
+                    "user": {
+                        "first_name": user.first_name,
+                        "last_name": user.last_name,
+                        "username": user.username,
+                        "email": user.email,
+                        "is_verified": user.is_verified,
+                        "created_at": str(user.created_at)
+                    }
+                }
+            )
+
+    raise HTTPException(
+        status_code=status.HTTP_403_FORBIDDEN,
+        detail={
+            "message": "check your email or password!"
+        }
+    )
 
 
 
