@@ -6,6 +6,7 @@ class AppConfig(BaseSettings):
     DATABASE_URL: str
     PASSWORD_HASHING_SCHEME: str
     JWT_HASHING_ALGORITHM: str
+    JWT_TOKEN_HEX: str
 
     model_config = SettingsConfigDict(
         env_file=".env"
