@@ -8,10 +8,10 @@ key = AppConfig.JWT_TOKEN_HEX
 algorithm = AppConfig.JWT_HASHING_ALGORITHM
 
 # we will attempt to generate a jwt token here
-def encode_jwt_token(user: dict, refresh: bool = False) -> str:
+def encode_jwt_token(user_data: dict, refresh: bool = False, expiry: timedelta = None) -> str:
     payload = {
-        "user": user,
-        "exp": datetime.now(tz=timezone.utc) + timedelta(seconds=3600),
+        "user": user_data,
+        "exp": datetime.now() + (expiry if expiry is not None else timedelta(minutes=60)),
         "refresh": refresh,
     }
 
@@ -28,7 +28,7 @@ def encode_jwt_token(user: dict, refresh: bool = False) -> str:
 # we will attempt to decode the token here
 def decode_jwt_token(jwt_token: str):
     try:
-        decoded_token = jwt.decode(
+        decoded_token: str = jwt.decode(
             jwt=jwt_token,
             key=key,
             algorithms=[algorithm]
