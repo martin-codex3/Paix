@@ -20,11 +20,6 @@ async def create_user_account(user_data:SignUpUserSchema, session: AsyncSession 
         session = session
     )
 
-    if password != password_confirmation:
-        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail={
-            "message": "provided passwords do not match!"
-        })
-
     if user_exists:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail={
             "message": "account with that email already exists!"

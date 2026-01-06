@@ -38,7 +38,6 @@ class UserService:
             confirm_password = user_data.confirm_password
 
             # we will hash both of the passwords here
-            new_user.confirm_password = hash_user_password(confirm_password)
             new_user.password = hash_user_password(password)
 
             session.add(new_user)

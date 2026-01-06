@@ -10,6 +10,5 @@ class UserModel(SQLModel, table = True):
     username: str
     email: str = Field(unique=True)
     password: str
-    confirm_password: str
     is_verified: bool = Field(default=False)
     created_at: datetime = Field(default=datetime.now())

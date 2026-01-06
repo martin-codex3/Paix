@@ -8,7 +8,6 @@ class SignUpUserSchema(BaseModel):
     username: str = Field(min_length=1)
     email: EmailStr = Field(min_length=1)
     password: str = Field(min_length=1)
-    confirm_password: str = Field(min_length=1)
     is_verified: bool = Field(default=False)
     created_at: datetime = Field(default=datetime.now())
 
