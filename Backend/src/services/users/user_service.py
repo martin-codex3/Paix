@@ -17,8 +17,7 @@ class UserService:
         return user
 
 
-    async def check_if_user_exists(self, user_data: SignUpUserSchema, session: AsyncSession):
-        email = user_data.email # we will get the user email from the input here
+    async def check_if_user_exists(self, email: EmailStr, session: AsyncSession):
         user_exists = await self.get_user_by_email(email = email, session = session)
 
         # checking if the user exists here
@@ -35,11 +34,8 @@ class UserService:
 
         if user is not None:
             password = user_data.password
-            confirm_password = user_data.confirm_password
-
             # we will hash both of the passwords here
             new_user.password = hash_user_password(password)
-
             session.add(new_user)
             await session.commit()
             return new_user

@@ -33,6 +33,6 @@ app.include_router(
 # registering the user routes here
 app.include_router(
     router=user_routes,
-    prefix="/api/auth",
+    prefix="/api/authentication",
     tags=["auth"]
 )
