@@ -1,6 +1,6 @@
 from sqlmodel.ext.asyncio.session import AsyncSession
 from src.models.projects.project_model import ProjectModel
-from sqlmodel import select, desc
+from sqlmodel import select, desc, delete
 from src.schemas.products.product_schema import (CreateProjectSchema,
                                                  FetchProjectSchema,
                                                  UpdateProjectSchema)
@@ -36,17 +36,26 @@ class ProjectService:
         )
 
         if project is not None:
-            project_to_update = project_data.model_dump()
-            for keys, values in project_to_update.items():
+            project_to_update_dict = project_data.model_dump()
+            for keys, values in project_to_update_dict.items():
                 setattr(project, keys, values)
-                session.add(project_to_update)
-                await session.commit()
-
-            return project_to_update
+            await session.commit()
+            return project
         else:
             return None
 
 
 
     async def delete_project(self, session: AsyncSession, project_id: int):
-        pass
+        project = await self.show_single_product(
+            project_id = project_id,
+            session = session
+        )
+
+        if project is not None:
+            await session.delete(project)
+            await session.commit()
+            return {}
+        else:
+            return None
+
