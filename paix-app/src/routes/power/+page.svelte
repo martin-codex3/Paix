@@ -2,5 +2,5 @@
 </script>
 
 <section>
-    <h1>something here</h1>
+    <h1>power</h1>
 </section>

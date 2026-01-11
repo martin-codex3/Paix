@@ -21,7 +21,7 @@
                 </li>
 
                 <li>
-                    <a href="/" class="flex items-center gap-2 w-full rounded-lg py-2
+                    <a href="/file-manager" class="flex items-center gap-2 w-full rounded-lg py-2
                      transition-all duration-150 ease-linear hover:bg-stone-500 px-2">
                         <span class="icon-[tabler--files] text-xl"></span>
                         <span class="capitalize">file manager</span>
@@ -29,7 +29,7 @@
                 </li>
 
                 <li>
-                    <a href="/" class="flex items-center gap-2 w-full rounded-lg py-2
+                    <a href="/version-control" class="flex items-center gap-2 w-full rounded-lg py-2
                      transition-all duration-150 ease-linear hover:bg-stone-500 px-2">
                         <span class="icon-[tabler--versions] text-xl"></span>
                         <span class="capitalize">version control</span>
@@ -37,7 +37,7 @@
                 </li>
 
                 <li>
-                    <a href="/" class="flex items-center gap-2 w-full rounded-lg py-2
+                    <a href="/structure" class="flex items-center gap-2 w-full rounded-lg py-2
                      transition-all duration-150 ease-linear hover:bg-stone-500 px-2">
                         <span class="icon-[tabler--layout-grid-add] text-xl"></span>
                         <span class="capitalize">structure</span>
@@ -54,7 +54,7 @@
                 </li>
 
                 <li>
-                    <a href="/" class="flex items-center gap-2 w-full rounded-lg py-2
+                    <a href="/power" class="flex items-center gap-2 w-full rounded-lg py-2
                      transition-all duration-150 ease-linear hover:bg-stone-500 px-2">
                         <span class="icon-[tabler--battery-vertical-charging-2] text-xl"></span>
                         <span class="capitalize">power</span>
@@ -62,7 +62,7 @@
                 </li>
 
                 <li>
-                    <a href="/" class="flex items-center gap-2 w-full rounded-lg py-2
+                    <a href="/appearance" class="flex items-center gap-2 w-full rounded-lg py-2
                      transition-all duration-150 ease-linear hover:bg-stone-500 px-2">
                         <span class="icon-[tabler--brush] text-xl"></span>
                         <span class="capitalize">appearance</span>
@@ -70,7 +70,7 @@
                 </li>
 
                 <li>
-                    <a href="/" class="flex items-center gap-2 w-full rounded-lg py-2
+                    <a href="/settings" class="flex items-center gap-2 w-full rounded-lg py-2
                      transition-all duration-150 ease-linear hover:bg-stone-500 px-2">
                         <span class="icon-[tabler--settings] text-xl"></span>
                         <span class="capitalize">settings</span>

@@ -1,5 +1,5 @@
 <script lang="ts"></script>
 
 <section>
-    <h1>file manager</h1>
+    <h1>Appearance</h1>
 </section>
