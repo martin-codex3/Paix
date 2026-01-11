@@ -1,11 +1,18 @@
 @import "tailwindcss";
+@plugin "@iconify/tailwind4";
 
 /* ============= we will define our themes and colours here =========*/
 @theme {
-    --font-primary-main: Inter-Regular;
+    --font-primary-main: "Inter-Regular", sans-serif;
+    --color-primary-main-orange: #ffa500;
+    --color-primary-main-yellow: #ffff00;
+    --color-primary-main-white: white;
+    --color-primary-main-black: black;
 }
 
 @font-face {
     font-family: "Inter-Regular";
-    src: "/fonts/extras/ttf/InterDisplay-Regular.ttf";
+    src: "/fonts/extras/ttf/Inter-Black.ttf";
+    font-style: normal;
+    font-weight: normal;
 }
