@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+/* ============= we will define our themes and colours here =========*/
+@theme {
+    --font-primary-main: Inter-Regular;
+}
+
+@font-face {
+    font-family: "Inter-Regular";
+    src: "/fonts/extras/ttf/InterDisplay-Regular.ttf";
+}
